@@ -1,0 +1,30 @@
+{% extends 'template.html' %}
+
+{% block title %}
+Close Account
+{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+    <div class="row justify-content-center" style="margin-top: 50px">
+        <div class="text-center">
+            <h2>Close your account</h2>
+            <p>Fill out the following details to close your account.</p>
+        </div>
+    </div>
+    <form class="form" method="POST" novalidate style="margin-top: 50px; margin-left: 30%; margin-right: 30%">
+        <div class="row justify-content-center">
+            {{form.hidden_tag()}}
+            <label class="form-label" style="margin-top: 10px"><font size="4">Enter your complete name</font></label>
+            {{form.name(class="form-control")}}
+            <label class="form-label" style="margin-top: 10px"><font size="4">Enter your aadhar number</font></label>
+            {{form.aadhar_number(class="form-control")}}
+            <label class="form-label" style="margin-top: 10px"><font size="4">Enter your address</font></label>
+            {{form.address(class="form-control")}}
+            <label class="form-label" style="margin-top: 10px"><font size="4">Enter your account password</font></label>
+            {{form.password(class="form-control")}}
+            {{form.submit(class="btn btn-dark", style="margin-top: 20px")}}
+        </div>
+    </form>
+</div>
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends 'template.html' %}
+{% block title %}
+{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+  <div class="row justify-content-center" style="margin-top: 50px">
+    <div class="col-lg-12">
+      <div class="text-center">
+        <h2>Open new FD account</h2>
+        <form method="POST" style="margin-left: 30%; margin-right: 30%; margin-top: 30px">
+          {{form.hidden_tag()}}
+          <label class="form-label" style="margin-top: 10px"><font size="4">Select the number of days you want to invest your money for</font></label>
+          {{form.time_period(class="form-control")}}
+          <label class="form-label" style="margin-top: 10px"><font size="4">Select the rate of interest</font></label>
+          {{form.rate_of_interest(class="form-control")}}
+          <label class="form-label" style="margin-top: 10px"><font size="4">Enter the amount you want to invest</font></label>
+          {{form.amount(class="form-control")}}
+          <label class="form-label" style="margin-top: 10px"><font size="4">Enter your password</font></label>
+          {{form.password(class="form-control")}}
+          {{form.submit(class="btn btn-dark", style="margin-top: 20px")}}
+        </form>
+      </div>
+    </div>
+
+  </div>
+</div>
+{% endblock %}

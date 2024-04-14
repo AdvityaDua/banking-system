@@ -1,0 +1,31 @@
+{% extends 'template.html' %}
+{% block title %}
+Existing User Login
+{% endblock %}
+
+{% block nav_button %}
+<button type="button" class="btn btn-dark navbar-btn" onclick="location.href='new_user_registration'">Create Account</button>
+<!--<button type="button" class="btn btn-dark navbar-btn" onclick="location.href='official_login'">Official Sign in</button>-->
+{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+    <div class="row justify-content-center" style="padding-top: 50px">
+        <div class="card bg-dark" style="width: 21rem; height: 22rem;">
+            <div class="card-header text-center">
+                Existing User Login
+            </div>
+            <div class="card-body justify-items-center align-items-center text-center">
+                <form method="post" novalidate>
+                    {{ form.hidden_tag() }}
+                    <label class="form-label">User ID</label>
+                    {{form.user_id(class = "form-control", placeholder = "Ex: 12345678901234")}}
+                    <label class="form-label">Password</label>
+                    {{form.password(class = "form-control")}}
+                    {{form.submit(class="btn btn-dark", style="margin-top: 20px; background-color: #212121")}}
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

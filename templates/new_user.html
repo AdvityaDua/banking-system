@@ -1,0 +1,61 @@
+{% extends 'template.html' %}
+{% block title %}
+New User Registration
+{% endblock %}
+
+{% block nav_button %}
+<button type="button" class="btn btn-dark navbar-btn" onclick="location.href='user_login'">User Sign in</button>
+<!--<button type="button" class="btn btn-dark navbar-btn" onclick="location.href='official_login'">Official Sign in</button>-->
+{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+    <div class="row" style="margin-top: 25px;">
+        <div class="col-12">
+            <div class="text-center">
+                <div class="h4">
+                    Fill out the form below to open an account in our bank.
+                </div>
+            </div>
+        </div>
+    </div>
+    <form method="post" novalidate>
+        {{form.hidden_tag()}}
+        <div class="row justify-content-center">
+            <div class="col-lg-6 position-relative" style="margin-top: 30px">
+                <div class="text-center" style="padding-left: 60px;padding-right: 60px; margin-left: 20px;margin-right: 20px">
+                    <label class="form-label"><font size="4">Name</font></label>
+                    {{form.name(class='form-control', placeholder = 'Ex: Advitya Dua')}}
+                    <label class="form-label"><font size="4">Age</font></label>
+                    {{form.age(class='form-control', placeholder = 'Ex: 18')}}
+                    <label  class="form-label"><font size="4">Father's Name</font></label >
+                    {{form.father_name(class='form-control', placeholder = 'Ex: Advitya Dua')}}
+                    <label  class="form-label"><font size="4">Mother's Name</font></label >
+                    {{form.mother_name(class='form-control', placeholder = 'Ex: Advitya Dua')}}
+                    <label  class="form-label"><font size="4"></font>Aadhar Number</label >
+                    {{form.aadhar_number(class='form-control', placeholder = 'Ex: 123456789012')}}
+                    <label class="form-label"><font size="4">Enter your password</font> </label>
+                    {{form.pass_input(class='form-control')}}
+                </div>
+            </div>
+            <div class="col-lg-6 position-relative" style="margin-top: 30px">
+                <div class="text-center" style="padding-left: 60px;padding-right: 60px; margin-left: 20px;margin-right: 20px">
+                    <label  class="form-label"><font size="4">Address</font></label >
+                    {{form.address(class='form-control', placeholder = 'Ex: Thapar Polytechnic College, Patiala')}}
+                    <label  class="form-label"><font size="4">Type of Account</font></label >
+                    {{form.type_of_account(class='form-control')}}
+                    <label  class="form-label"><font size="4">DOB</font> </label >
+                    {{form.dob(class='form-control', placeholder='Ex: 2005-09-19')}}
+                    <label  class="form-label"><font size="4">Marital Status</font></label >
+                    {{form.marital_status(class='form-control')}}
+                    <label class="form-label"><font size="4">Employment Status</font></label>
+                    {{form.employment_status(class='form-control')}}
+                    <label class="form-label"><font size="4">Confirm your password</font></label>
+                    {{form.pass_confirm(class='form-control')}}
+                </div>
+            </div>
+            {{form.submit(class="btn btn-dark", style="margin-top: 20px;")}}
+        </div>
+    </form>
+</div>
+{% endblock %}

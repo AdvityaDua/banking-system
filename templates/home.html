@@ -1,0 +1,27 @@
+{% extends 'template.html' %}
+{% block title %}
+Home
+{% endblock %}
+
+{% block nav_button %}
+<button type="button" class="abcd btn btn-dark navbar-btn" onclick="location.href='user_login'">User Sign in</button>
+<!--<button type="button" class="btn btn-dark navbar-btn" onclick="location.href='official_login'">Official Sign in</button>-->
+{% endblock %}
+
+{%block content%}
+<div class="container-fluid">
+    <div class="row" style='margin-top: 175px;'>
+        <div class="col-lg-12">
+            <div class="text-center">
+                <div class="h1">
+                    Welcome to HSC Bank
+                </div>
+                <div class="p">
+                    All new way of banking and controlling money.
+                </div>
+                <button class="btn btn-dark" style="margin: 30px;" onclick="location.href='new_user_registration'">Click here to get started.</button>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

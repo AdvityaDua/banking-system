@@ -1,0 +1,30 @@
+{% extends 'template.html' %}
+{% block title %}
+Official Login
+{% endblock %}
+
+{% block nav_button %}
+<button type="button" class="btn btn-dark navbar-btn" onclick="location.href='user_login'">User Sign in</button>
+<button type="button" class="btn btn-dark navbar-btn" onclick="location.href='new_user_registration'">Create New Account</button>
+{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+    <div class="row justify-content-center" style="padding-top: 50px">
+        <div class="card bg-dark" style="width: 21rem; height: 22rem;">
+            <div class="card-header text-center">
+                Official Login
+            </div>
+            <div class="card-body justify-items-center align-items-center text-center">
+                <form>
+                    <label for="officialinput1" class="form-label">User ID</label>
+                    <input class="form-control" id="officialinput1">
+                    <label for="officialinput2" class="form-label">Password</label>
+                    <input class="form-control" id="officialinput2">
+                    <button class="btn btn-dark" type="submit" style="margin-top: 20px; background-color: #212121">Login</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

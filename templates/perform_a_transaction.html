@@ -1,0 +1,25 @@
+{% extends 'template.html' %}
+
+{% block title %}
+Transaction
+{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+    <div class="row justify-content-center" style="padding-top: 50px;">
+        <h3>Perform a transaction</h3>
+    </div>
+    <form class="form-dark" style="padding-top: 50px" method="post" novalidate>
+        {{form.hidden_tag()}}
+        <div class="row justify-content-center" style="padding-left: 35%; padding-right: 35%">
+            <label class="form-label"><font size="4">Amount</font></label>
+            {{form.amount(class="form-control", placeholder="Ex: 1000")}}
+            <label class="form-label"><font size="4">Type of Transaction</font></label>
+            {{form.type_of_transaction(class="form-control")}}
+            <label class="form-label"><font size="4">Password</font></label>
+            {{form.password(class="form-control")}}
+            {{form.submit(class="btn btn-dark", style="margin-top: 20px", type="submit")}}
+        </div>
+    </form>
+</div>
+{% endblock %}
