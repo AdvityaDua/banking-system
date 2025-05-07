@@ -1,0 +1,40 @@
+{% extends 'template.html' %}
+{% block title %}
+View Tickets
+{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+  <div class="row justify-content-center" style="padding-top: 50px">
+    <h2>Submitted Support Tickets</h2>
+    <table class="table table-hover table-bordered table-dark" style="margin: 50px">
+      <thead>
+        <tr>
+          <th>Ticket ID</th>
+          <th>Title</th>
+          <th>Description</th>
+          <th>Related Transaction</th>
+          <th>Priority</th>
+          <th>Status</th>
+          <th>Date Submitted</th>
+          <th>Last Updated</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for ticket in tickets %}
+        <tr>
+          <td>{{ ticket[0] }}</td>  {# id #}
+          <td>{{ ticket[3] }}</td>  {# title #}
+          <td>{{ ticket[4] }}</td>  {# description #}
+          <td>{{ ticket[2] if ticket[2] else 'N/A' }}</td>  {# transaction_id #}
+          <td>{{ ticket[5] }}</td>  {# priority #}
+          <td>{{ ticket[6] }}</td>  {# status #}
+          <td>{{ ticket[7].strftime('%d-%m-%Y') if ticket[7] else 'N/A' }}</td>  {# date_submitted #}
+          <td>{{ ticket[8].strftime('%d-%m-%Y %H:%M') if ticket[8] else 'N/A' }}</td>  {# last_updated #}
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+{% endblock %}

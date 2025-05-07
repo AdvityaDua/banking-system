@@ -1,0 +1,41 @@
+{% extends 'template.html' %}
+{% block title %}
+Submit a Ticket
+{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+  <div class="row justify-content-center" style="margin-top: 50px">
+    <div class="col-lg-12">
+      <div class="text-center">
+        <h2>Submit an Issue / Support Ticket</h2>
+        <form method="POST" style="margin-left: 30%; margin-right: 30%; margin-top: 30px">
+          {{ form.hidden_tag() }}
+
+          <label class="form-label" style="margin-top: 10px">
+            <font size="4">Issue Title</font>
+          </label>
+          {{ form.title(class="form-control") }}
+
+          <label class="form-label" style="margin-top: 10px">
+            <font size="4">Describe the Issue</font>
+          </label>
+          {{ form.description(class="form-control", rows="4") }}
+
+          <label class="form-label" style="margin-top: 10px">
+            <font size="4">Related Transaction (Optional)</font>
+          </label>
+          {{ form.transaction_id(class="form-control") }}
+
+          <label class="form-label" style="margin-top: 10px">
+            <font size="4">Priority</font>
+          </label>
+          {{ form.priority(class="form-control") }}
+
+          {{ form.submit(class="btn btn-dark", style="margin-top: 20px") }}
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

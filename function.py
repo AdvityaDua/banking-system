@@ -5,7 +5,7 @@ import mysql.connector
 from datetime import datetime as dt
 from datetime import timedelta
 
-mydb = mysql.connector.connect(host="localhost", user="advitya", password="320@Kshivaji", database="mydatabase")
+mydb = mysql.connector.connect(host="localhost", user="bank_user", password="secure_password", database="virtual_banking")
 my_cursor = mydb.cursor()
 
 
@@ -39,22 +39,20 @@ def register_new_user(mydb, cursor, form):
             return user_id
 
     name = form.name.data
-    age = form.age.data
     father_name = form.father_name.data
     mother_name = form.mother_name.data
     aadhar_number = form.aadhar_number.data
     address = form.address.data
-    type_of_account = form.type_of_account.data
+    type_of_account = 'Saving' if form.type_of_account.data == 'Savings' else 'Current'
     dob = form.dob.data
-    m_status = form.marital_status.data
-    e_status = form.employment_status.data
+    m_status = form.marital_status.data.capitalize()
+    e_status = form.employment_status.data.capitalize()
     user_id = user_id_generation(type_of_account, e_status, cursor)
     password = pass_hash(form.pass_input.data)
     current_balance = 0
-    role = 'user'
-    sql = "INSERT INTO user_details (name, age, father_name, mother_name, aadhar_number, address, type_of_account, dob, m_status, e_status, user_id, password, current_balance, role) VALUES ('{}',{},'{}','{}',{},'{}','{}','{}','{}','{}', {}, '{}', {}, '{}')".format(
-        name, age, father_name, mother_name, aadhar_number, address, type_of_account, dob, m_status, e_status, user_id,
-        password, current_balance, role)
+    sql = "INSERT INTO user_details (name, father_name, mother_name, aadhar_number, address, type_of_account, dob, m_status, e_status, user_id, password, current_balance) VALUES ('{}','{}','{}',{},'{}','{}','{}','{}','{}', {}, '{}', {})".format(
+        name, father_name, mother_name, aadhar_number, address, type_of_account, dob, m_status, e_status, user_id,
+        password, current_balance)
     cursor.execute(sql)
     mydb.commit()
     return user_id
@@ -96,7 +94,7 @@ def create_fd(form, id, balance):
             date, number_of_days, amount, rate_of_interest, closing_date, id))
     my_cursor.execute(f"update user_details set current_balance = {balance - amount} where user_id = {id}")
     my_cursor.execute(
-        f"insert into transaction_details(date, time, type_of_transaction, amount, current_balance, user_id, status) values('{date}', '{time}', 'FD withdrawal', {amount}, {balance - amount}, {id}, 'Success')")
+        f"insert into transaction_details(date, time, type_of_transaction, amount, current_balance, user_id, status) values('{date}', '{time}', 'FD Withdrawal', {amount}, {balance - amount}, {id}, 'Success')")
     mydb.commit()
 
 

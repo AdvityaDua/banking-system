@@ -26,8 +26,6 @@ New User Registration
                 <div class="text-center" style="padding-left: 60px;padding-right: 60px; margin-left: 20px;margin-right: 20px">
                     <label class="form-label"><font size="4">Name</font></label>
                     {{form.name(class='form-control', placeholder = 'Ex: Advitya Dua')}}
-                    <label class="form-label"><font size="4">Age</font></label>
-                    {{form.age(class='form-control', placeholder = 'Ex: 18')}}
                     <label  class="form-label"><font size="4">Father's Name</font></label >
                     {{form.father_name(class='form-control', placeholder = 'Ex: Advitya Dua')}}
                     <label  class="form-label"><font size="4">Mother's Name</font></label >
@@ -36,6 +34,8 @@ New User Registration
                     {{form.aadhar_number(class='form-control', placeholder = 'Ex: 123456789012')}}
                     <label class="form-label"><font size="4">Enter your password</font> </label>
                     {{form.pass_input(class='form-control')}}
+                    <label class="form-label"><font size="4">Confirm your password</font></label>
+                    {{form.pass_confirm(class='form-control')}}
                 </div>
             </div>
             <div class="col-lg-6 position-relative" style="margin-top: 30px">
@@ -50,8 +50,7 @@ New User Registration
                     {{form.marital_status(class='form-control')}}
                     <label class="form-label"><font size="4">Employment Status</font></label>
                     {{form.employment_status(class='form-control')}}
-                    <label class="form-label"><font size="4">Confirm your password</font></label>
-                    {{form.pass_confirm(class='form-control')}}
+                    
                 </div>
             </div>
             {{form.submit(class="btn btn-dark", style="margin-top: 20px;")}}
